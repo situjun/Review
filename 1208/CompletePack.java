@@ -3,8 +3,8 @@ class CompletePack{
 	public static void main(String[] s){
 		ArrayList<String> list = new ArrayList<String>();
 		
-		int[] weight = {4,2,6,5,3};
-		int[] value = {5,2,6,4,3};
+		int[] weight = {2,1,6,5,4};
+		int[] value = {3,2,5,4,6};
 		int length = weight.length;
 		int limit = 10;
 		int[] F = new int[limit+1];
