@@ -1,0 +1,35 @@
+import java.util.*;
+public class Test1{
+    static int count =  0;
+	public static void main(String[] args){
+		System.out.println(new Test1().countArrangement(4)+"");
+	}
+    public static int countArrangement(int N) {
+        List<Integer> list = new ArrayList<>();
+		if(N==0) return 0;
+		
+        int[] arr = new int[N];
+        for(int i =1;i<=N;i++) arr[i-1] = N;
+        boolean[] used = new boolean[N];
+        helper(list,N,used);
+        return count;
+    }
+    public static void helper(List<Integer> list,int target,boolean[] used){
+        if(list.size() == target){
+			
+            count++;
+			System.out.println(list);
+        } else {
+            for(int i = 1;i<=target;i++){
+                if(used[i-1]) continue;
+                if((list.size()+1)%i == 0 || i%(list.size()+1) == 0){
+                    list.add(i);
+                    used[i-1] = true;
+                    helper(list,target,used);
+                    used[i-1] = false;
+                    list.remove(list.size()-1);
+                }
+            }
+        }
+    }
+}
